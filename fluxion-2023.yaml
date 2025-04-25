@@ -1,0 +1,152 @@
+seed_examples:
+  - context: |-
+      Wepresented a novel graph-based resource model and its implementation, Fluxion,
+      for HPC and converged computing scheduling. Our model addresses the limitations
+      of existing node-centric models, and supports converged computing environments,
+      disaggregated systems, and complex and elastic modern workflows. We described
+      the novel architecture, procedures for improving scalability, and algorithms
+      comprising Fluxion and discussed how these contributions allow Fluxion to
+      schedule resources efficiently. We discussed several emerging use cases which
+      our model enables and evaluated its scalability. Future work involves optimizing
+      our model's implementation and applying it to scheduling environments with
+      dynamic resources and hierarchies. The powerful combination of a directed-graph
+      resource model with fully-hierarchical scheduling and architectural separation
+      of concerns allows Fluxion to schedule virtually any resource types, including
+      types not yet devised.
+    questions_and_answers:
+      - question: |-
+          What are the main features of the Fluxion model that make it suitable for
+          converged computing environments, disaggregated systems, and complex and elastic
+          modern workflows?
+        answer: |-
+          The Fluxion model is a directed-graph resource model with fully-hierarchical
+          scheduling and architectural separation of concerns, which allows it to schedule
+          virtually any resource types, including those not yet devised.
+      - question: |-
+          Given the features and capabilities of the Fluxion model, why is it well-suited
+          for future work involving scheduling environments with dynamic resources and
+          hierarchies?
+        answer: |-
+          The Fluxion model's features, such as its directed-graph resource model, fully-
+          hierarchical scheduling, and architectural separation of concerns, make it
+          adaptable and flexible, allowing it to handle dynamic resources and hierarchies
+          effectively.
+  - context: |-
+      We empirically evaluate the performance of the Planner discussed in Section 4.1.
+      A total of 128 units of unnamed resource is planned for a maximum time of 12
+      hours. We begin by inserting a set of pre-populated spans (going up to 1 million
+      spans, which would represent 2 million scheduled points) into a single Planner
+      object. Each request is a tuple, denoted as < r , d > , where r is the amount of
+      resource requested (sampled from a uniform distribution between 1 to 128) and d
+      is the duration of the request (sampled from the uniform distribution between 1
+      to 43200, or 12 hours). We use conservative backfilling. We have the following
+      tests:
+    questions_and_answers:
+      - question: How long is the maximum time of planning in the evaluation?
+        answer: 12 hours
+      - question: |-
+          What are the ranges for the resource requested and the duration of the request
+          in the evaluation?
+        answer: |-
+          The resource requested is sampled from a uniform distribution between 1 to 128,
+          and the duration of the request is sampled from the uniform distribution between
+          1 to 43200 (or 12 hours).
+      - question: |-
+          Based on the evaluation, would conservative backfilling help in managing
+          resources more efficiently?
+        answer: |-
+          This would depend on the specific details of how conservative backfilling is
+          implemented and how it interacts with the other factors in the evaluation, such
+          as the distribution of resource requests and their durations.
+  - context: |-
+      In this changing landscape, HPC resource managers and job schedulers relying on
+      restrictive approaches to solve emerging problems create a technology gap. One
+      such gap is in the design of resource models , which define how information
+      about resource types and job requests is stored internally. Existing HPC
+      schedulers use a node-centric or core-centric design. While such a design is
+      ideal for traditional applications and is efficient in terms of scheduler
+      performance, it falls short in supporting emerging HPC workloads. For example,
+      it does not offer natural ways to express resource relationships. As a result,
+      it cannot be used to represent complex resource constraints or to capture
+      elasticity that is inherent to modern workloads. It also cannot be extended
+      easily to represent extremely heterogeneous resources or flow resources such as
+      power or network bandwidth. Such a design also limits expressibility for
+      seamless scheduling across disaggregated resources or converged HPC and Cloud
+      platforms [9, 28, 30].
+    questions_and_answers:
+      - question: What kind of design do existing HPC schedulers use?
+        answer: Existing HPC schedulers use a node-centric or core-centric design.
+      - question: |-
+          What are the limitations of the existing design of HPC schedulers in supporting
+          emerging HPC workloads?
+        answer: |-
+          The existing design of HPC schedulers does not offer natural ways to express
+          resource relationships, cannot be used to represent complex resource constraints
+          or to capture elasticity that is inherent to modern workloads, and cannot be
+          extended easily to represent extremely heterogeneous resources or flow resources
+          such as power or network bandwidth. It also limits expressibility for seamless
+          scheduling across disaggregated resources or converged HPC and Cloud platforms.
+      - question: |-
+          Given the limitations of the existing node-centric or core-centric design of HPC
+          schedulers, what kind of design might be more suitable for supporting emerging
+          HPC workloads?
+        answer: |-
+          A design that offers natural ways to express resource relationships, can
+          represent complex resource constraints and capture elasticity, can be extended
+          to represent heterogeneous resources and flow resources, and can facilitate
+          seamless scheduling across disaggregated resources or converged HPC and Cloud
+          platforms would be more suitable for supporting emerging HPC workloads.
+  - context: |-
+      Manufacturing variation can manifest in two ways for applications. First, rank-
+      to-rank variation can occur within the application resulting in unforeseen
+      slowdowns and load imbalance. Second, run-to-run variation can occur, wherein
+      subsequent executions of the same application get distinct physical allocations,
+      and as a result exhibit differences in performance and a lack of
+      reproducibility. We focus on mitigating rank-to-rank application performance
+      variation. Typically, these variations can be categorized deterministically by
+      profiling all the nodes in the HPC system at bring-up time across a diverse set
+      of benchmarks. Such benchmarking allows for ranking nodes within the system in
+      terms of performance and power efficiency. For the scope of the discussion in
+      this paper, we assume that we have a distribution of nodes that can be binned
+      into a few performance classes in advance for a HPC system, where each
+      performance class contains a set of nodes that depict relatively similar
+      performance on the selected benchmarks. Determining these performance classes is
+      an orthogonal research problem that we do not address in this paper.
+    questions_and_answers:
+      - question: What is the focus of the paper in terms of manufacturing variation?
+        answer: |-
+          The focus of the paper is on mitigating rank-to-rank application performance
+          variation.
+  - context: |-
+      Our resource model must also provide efficient time management : it must keep
+      track of the state changes of resources over time in support of various queuing,
+      reservation, and backfilling policies [15]. The model accomplishes this by
+      directly integrating a highly efficient resource-time state tracking and search
+      mechanism into each vertex, called Planner , (Step (6), Section 4.1). Even after
+      we judiciously choose the right levels of detail for our resource graph store,
+      the matching process for allocations requires further optimization. Thus,
+      Fluxion utilizes pruning filters for scalability, as shown at Step (6). Pruning
+      filters are installed at higher-level resource vertices (such as compute-rack-
+      level vertices) to keep track of the aggregate amounts of available lower-level
+      resources (e.g., individual cores). Fluxion also introduces a novel Scheduler-
+      Driven Filter Update (SDFU) algorithm (Step (5)) to update these filters.
+      Finally, once Fluxion determines the best matching resource subgraph, it is
+      emitted as a selected resource set at (7), which can then be allocated to the
+      user for their application by the underlying RM. The RM can then make use of
+      this resource set to contain, bind and execute the target program(s) within
+      those resources.
+    questions_and_answers:
+      - question: |-
+          What is the name of the mechanism integrated into each vertex for efficient time
+          management?
+        answer: Planner
+      - question: What are the three methods Fluxion uses to optimize resource allocation?
+        answer: |-
+          Fluxion uses pruning filters for scalability, a Scheduler-Driven Filter Update
+          (SDFU) algorithm to update these filters, and it emits the best matching
+          resource subgraph as a selected resource set for allocation.
+      - question: Given the information provided, why does Fluxion introduce the SDFU
+          algorithm?
+        answer: |-
+          Fluxion introduces the SDFU algorithm to update the pruning filters that keep
+          track of the aggregate amounts of available lower-level resources.

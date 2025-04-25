@@ -1,0 +1,135 @@
+seed_examples:
+  - context: "Our evaluation with three recent workflow efforts at LLNL shows that\
+      \ Flux\nsignificantly overcomes all of the stated challenges. Our performance\n\
+      measurements on synthetic and real ensemble-based workflows suggest that our\n\
+      hierarchical scheduling approach can improve the job throughput performance\
+      \ of\nthese workflows by 48 \xD7 . Further, our case study on the Cancer Moonshot\
+      \ Pilot2\nproject shows that Flux can efficiently co-schedule a new workflow\
+      \ that employs\nmachine learning to couple a large continuum model-based application\
+      \ with an\nensemble of thousands of MD simulations starting and stopping during\
+      \ a run at\nhigh speed. Finally, our integration with Merlin, a workflow management\
+      \ system\ndesigned to support next-generation machine learning on HPC, shows\
+      \ that Flux\nsignificantly enables not only co-scheduling of various task types\
+      \ within each\nensemble but also its needs for high portability and task communication\
+      \ and\ncoordination."
+    questions_and_answers:
+      - question: |-
+          How many times can Flux improve the job throughput performance of workflows
+          according to the performance measurements?
+        answer: "48 \xD7"
+      - question: What are the main benefits of using Flux in the Cancer Moonshot
+          Pilot2 project?
+        answer: |-
+          Flux can efficiently co-schedule a new workflow that employs machine learning to
+          couple a large continuum model-based application with an ensemble of thousands
+          of MD simulations starting and stopping during a run at high speed.
+      - question: |-
+          Based on the integration with Merlin, what additional capabilities does Flux
+          enable for task communication and coordination?
+        answer: |-
+          Flux enables high portability and efficient co-scheduling of various task types
+          within each ensemble, enhancing task communication and coordination.
+  - context: |-
+      Overall, this workflow exemplifies the many (co-)scheduling and execution
+      challenges faced by emerging workflows. They include co-scheduling of coupled
+      simulations at different scales (i.e., continuum models-based simulations with
+      several thousand MD simulations, coordination between CPU and GPU runs), the use
+      of a machine learning module to schedule (or de-schedule) and execute
+      simulations dynamically at a high rate, and the use of data store to coordinate
+      the data flow between different tasks. We will further characterize the key
+      scheduling and execution challenges such as the ones shown in the Cancer
+      Moonshot Pilot2 workflow in the next section.
+    questions_and_answers:
+      - question: What is one of the challenges faced by emerging workflows?
+        answer: |-
+          One challenge faced by emerging workflows is the co-scheduling of coupled
+          simulations at different scales.
+      - question: |-
+          What are some of the key scheduling and execution challenges faced by the Cancer
+          Moonshot Pilot2 workflow?
+        answer: |-
+          The key scheduling and execution challenges faced by the Cancer Moonshot Pilot2
+          workflow include co-scheduling of coupled simulations at different scales,
+          coordination between CPU and GPU runs, use of a machine learning module to
+          schedule simulations dynamically, and coordination of data flow between
+          different tasks using a data store.
+  - context: |-
+      System-level solutions can be broken down into centralized, limited
+      hierarchical, and decentralized schedulers. Centralized schedulers use a single,
+      global scheduler that maintains and tracks the full knowledge of jobs and
+      resources to make scheduling decisions. This scheduling model is simple and
+      effective for moderate-size clusters, making it the state of the practice in
+      most cloud and HPC centers today. Cloud schedulers such as Swarm [18] and
+      Kubernetes [19] and HPC schedulers such as SLURM [8], MOAB [10], LSF [9], and
+      PBSPro [11] are centralized. While simple, these centralized schedulers are
+      capped at tens of jobs/sec [25], provide limited to no support for co-scheduling
+      of heterogeneous tasks [26], have limited APIs, and cannot be easily nested
+      within other system schedulers.
+    questions_and_answers:
+      - question: What is the scheduling model used by centralized schedulers?
+        answer: |-
+          Centralized schedulers use a single, global scheduler that maintains and tracks
+          the full knowledge of jobs and resources to make scheduling decisions.
+      - question: |-
+          Given the limitations of centralized schedulers, what type of scheduling model
+          might be more suitable for handling a large number of jobs and providing support
+          for co-scheduling of heterogeneous tasks?
+        answer: |-
+          A decentralized scheduling model might be more suitable as it can handle a large
+          number of jobs and provide support for co-scheduling of heterogeneous tasks.
+  - context: |-
+      At each time step of the continuum model, 300 patches are extracted (one
+      centered on each RAS protein) and compared to all patches previously explored
+      using MD simulations. Whenever computing resources become available, the most
+      unusual new patch (i.e., the patch with the largest distance to its neighbors in
+      latent space) is taken and a new corresponding MD simulation is started. The
+      framework discussed above crucially relies on the ability to automatically
+      instantiate MD simulations, monitor them on-the-fly, and provide feedback to the
+      continuum model. RAS orientations are selected from pre-constructed libraries
+      and pulled to the membrane surface.
+    questions_and_answers:
+      - question: How many patches are extracted at each time step of the continuum
+          model?
+        answer: 300 patches
+      - question: What is the process of selecting RAS orientations for the MD simulations?
+        answer: |-
+          RAS orientations are selected from pre-constructed libraries and pulled to the
+          membrane surface
+      - question: |-
+          Given the computational process, why are the most unusual new patches selected
+          for further MD simulations?
+        answer: |-
+          The most unusual new patches are selected because they have the largest distance
+          to their neighbors in latent space, indicating they are the most different and
+          potentially the most informative for the continuum model
+  - context: |-
+      Flux's user-driven, customizable approach to scheduling provides inherent
+      support for co-scheduling. Flux's flexible design allows users to decide whether
+      or not co-scheduling should be configured and also lets users choose their own
+      scheduling policies within the scope of an instance. With the help of the job
+      submission API, several tasks can efficiently coexist on a single node without
+      any restrictions on their number, type, or resource requirements. This allows
+      for submission and tuning at all possible levels of heterogeneity within a node
+      (and across nodes), including individual cores, a set of cores, sockets, GPUs,
+      or burst buffers.
+    questions_and_answers:
+      - question: Does Flux support co-scheduling?
+        answer: Yes, Flux supports co-scheduling.
+      - question: What are the key features of Flux's approach to scheduling and co-scheduling?
+        answer: |-
+          Flux's scheduling approach is user-driven and customizable, providing inherent
+          support for co-scheduling. It allows users to decide whether to configure co-
+          scheduling and choose their own scheduling policies. The job submission API
+          enables multiple tasks to coexist on a single node, regardless of their number,
+          type, or resource requirements, allowing for submission and tuning at various
+          levels of heterogeneity.
+      - question: |-
+          Given Flux's support for co-scheduling and its flexible design, why might users
+          choose to use Flux for scheduling tasks on their nodes?
+        answer: |-
+          Users might choose to use Flux for scheduling tasks because it allows for
+          efficient coexistence of several tasks on a single node without restrictions on
+          their number, type, or resource requirements. This flexibility enables
+          submission and tuning at all possible levels of heterogeneity within a node and
+          across nodes, including individual cores, sets of cores, sockets, GPUs, or burst
+          buffers.

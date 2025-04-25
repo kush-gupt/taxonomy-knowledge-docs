@@ -1,0 +1,136 @@
+# Flux 2014 Starter
+seed_examples:
+  - context: |-
+      An HPC batch system must generate and provide a complete set of statistics for
+      the jobs that are run and the resources that are consumed.  This begins with a
+      list of job records, both individual and aggregated.  Users and managers will
+      want to look back over time to see what jobs ran, what resources they ran on,
+      and whether they ran successfully to completion.  Managers also require reports
+      of how computing resource investments are utilized and by which users, groups
+      and projects.  Fair-share calculations are based off the difference between what
+      resources were promised and which resources were ultimately used.
+    questions_and_answers:
+      - question: What is one of the responsibilities of an HPC batch system?
+        answer: |-
+          An HPC batch system is responsible for generating and providing a complete set
+          of statistics for the jobs that are run and the resources that are consumed.
+      - question: |-
+          What kind of information can be obtained from the job records provided by an HPC
+          batch system?
+        answer: |-
+          The job records provided by an HPC batch system include information about the
+          jobs that have run, the resources they ran on, and whether they ran successfully
+          to completion.
+      - question: |-
+          Given the information about fair-share calculations, how are they typically
+          determined?
+        answer: |-
+          Fair-share calculations are based off the difference between what resources were
+          promised and which resources were ultimately used.
+  - context: |-
+      This primer introduces the concepts of High Performance Computing, scheduling,
+      and resource management.  It focuses first on the state of the art and then
+      introduces the issues under consideration in the design of a next generation
+      resource manager known as Flux.  The Flux design addresses not just the
+      challenges of resource management at a much larger scale of systems, but it also
+      enables and promotes a much broader and richer model that invites collaboration
+      with areas whose requirements cannot be met in current systems.
+    questions_and_answers:
+      - question: What are the main aspects addressed by the design of the Flux resource
+          manager?
+        answer: |-
+          The design of the Flux resource manager addresses the challenges of resource
+          management at a larger scale of systems and enables and promotes collaboration
+          with areas whose requirements cannot be met in current systems.
+      - question: Based on the information provided, why was the Flux resource manager
+          designed?
+        answer: |-
+          The Flux resource manager was designed to address the challenges of resource
+          management at a larger scale of systems and to enable and promote collaboration
+          with areas whose requirements cannot be met in current systems.
+  - context: |-
+      The term High performance computing (HPC) as it is commonly used refers to a
+      category of computing systems that combine computing power from multiple units
+      to deliver vastly higher performance than desktop computers can provide.  HPC is
+      distinguished not just by computing power.  HPC systems are designed to run a
+      variety of large applications for extended periods of time in order to solve
+      complex problems.  HPC is distinguished from web servers in that they dedicate
+      requested resources to run applications provided by users.  Current HPC systems
+      are distinguished from cloud services like AWS in that they generally provide a
+      single operating system with a runtime environment managed by the facility.
+    questions_and_answers:
+      - question: What is commonly understood by the term High performance computing
+          (HPC)?
+        answer: |-
+          High performance computing (HPC) refers to a category of computing systems that
+          combine computing power from multiple units to deliver vastly higher performance
+          than desktop computers.
+      - question: How does HPC differ from web servers and cloud services like AWS?
+        answer: |-
+          HPC systems differ from web servers in that they dedicate requested resources to
+          run applications provided by users. They differ from cloud services like AWS in
+          that they generally provide a single operating system with a runtime environment
+          managed by the facility.
+      - question: |-
+          Given the description, why are HPC systems more suitable for solving complex
+          problems over extended periods compared to desktop computers or cloud services?
+        answer: |-
+          HPC systems are designed to run a variety of large applications for extended
+          periods of time in order to solve complex problems, making them more suitable
+          for such tasks compared to desktop computers or cloud services.
+  - context: |-
+      The configuration of each of the above operations makes up what is known as the
+      center's policy.  The computing center management effectively enters into an
+      agreement with their users to establish and then enforce a well-defined policy
+      for how jobs are selected to run and what resources their jobs are allocated.
+      Users need to know that they will receive the service they are entitled to and
+      evidence needs to be available to convince users that they are received the
+      service they were promised or sold.
+    questions_and_answers:
+      - question: What makes up the configuration of each operation in the above context?
+        answer: |-
+          The configuration of each operation makes up what is known as the center's
+          policy.
+      - question: |-
+          What does the computing center management agree to establish and enforce with
+          their users?
+        answer: |-
+          The computing center management agrees to establish and enforce a well-defined
+          policy for how jobs are selected to run and what resources their jobs are
+          allocated.
+      - question: |-
+          Why does evidence need to be available to convince users about the service they
+          received?
+        answer: |-
+          Evidence needs to be available to convince users that they are received the
+          service they were promised or sold, ensuring trust and transparency in the
+          service provision.
+  - context: |-
+      This document was prepared as an account of work sponsored by an agency of the
+      United States government. Neither the United States government nor Lawrence
+      Livermore National Security, LLC, nor any of their employees makes any warranty,
+      expressed or implied, or assumes any legal liability or responsibility for the
+      accuracy, completeness, or usefulness of any information, apparatus, product, or
+      process disclosed, or represents that its use would not infringe privately owned
+      rights. Reference herein to any specific commercial product, process, or service
+      by trade name, trademark, manufacturer, or otherwise does not necessarily
+      constitute or imply its endorsement, recommendation, or favoring by the United
+      States government or Lawrence Livermore National Security, LLC. The views and
+      opinions of authors expressed herein do not necessarily state or reflect those
+      of the United States government or Lawrence Livermore National Security, LLC,
+      and shall not be used for advertising or product endorsement purposes.
+    questions_and_answers:
+      - question: Who is the sponsor of the work described in this document?
+        answer: An agency of the United States government
+      - question: |-
+          What organizations are associated with the preparation and endorsement of this
+          document?
+        answer: The United States government, Lawrence Livermore National Security,
+          LLC
+      - question: |-
+          Based on the disclaimer, what can be inferred about the potential use of
+          privately owned materials in the work described?
+        answer: |-
+          The use of privately owned materials in the work described may not be excluded,
+          and if it occurs, it would not necessarily constitute an endorsement or favoring
+          by the United States government or Lawrence Livermore National Security, LLC.
